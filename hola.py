@@ -1,1 +1,2 @@
-asfasdfsdafsdafdascvz
+print("hola");
+print("el pelucaaa")
