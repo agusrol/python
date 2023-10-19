@@ -68,3 +68,30 @@ cuenta_inversiones.pasa_mes()
 
 for cuenta in cuentas:
     print(cuenta)
+
+
+
+
+
+
+class CuentaSalario:
+    def __init__(self,codigo):
+        self._codigo=codigo
+        self._saldo=saldo = 0
+    def deposita(self,valor):
+        self._saldo += valor
+    def __eq__(self,otro):
+        return self._codigo == otro._codigo
+    def __str__(self):
+        return f'>>>>Código: {self._codigo} -- Saldo: {self._saldo}<<<<'
+    
+salario_alvaro = CuentaSalario(15)
+salario_stefani = CuentaSalario(15)
+
+print(salario_alvaro == salario_stefani) #Si yo no defino eq, compara las id (los espacio de memoria)
+print(salario_alvaro.__eq__(salario_stefani))
+
+##Problema:
+corriente_alvaro = CuentaCorriente(15)
+print(corriente_alvaro == salario_alvaro) #Está mal, para corregirlo podría poner en __eq__ un if(type==...)
+
