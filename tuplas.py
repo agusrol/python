@@ -95,3 +95,4 @@ print(salario_alvaro.__eq__(salario_stefani))
 corriente_alvaro = CuentaCorriente(15)
 print(corriente_alvaro == salario_alvaro) #Está mal, para corregirlo podría poner en __eq__ un if(type==...)
 
+

@@ -53,9 +53,69 @@ for cuenta in cuentas:
 def deposita_a_todos(cuentas):
     for cuenta in cuentas:
         cuenta.deposita(100)
-cuentas.insert(0,76)
-deposita_a_todos(cuentas)
+
+# cuentas.insert(0,76)
+# deposita_a_todos(cuentas) #Da error, porque pusiste un int!
+
+
 for cuenta in cuentas:
     print(f'El espacio de memoria es:  {id(cuenta)}')
     print(cuenta)
 
+
+print(sorted(edades))
+print(sorted(edades,reverse=True))
+
+edades.sort()
+print(edades)
+
+nombres = ["A","S","P"]
+for nombre in nombres:
+    print(ord(nombre[0]))
+
+for nombre in nombres:
+    print(ord(nombre[0]))
+
+from functools import total_ordering
+
+@total_ordering
+class CuentaSalario:
+    def __init__(self,codigo):
+        self._codigo=codigo
+        self._saldo=saldo = 0
+    def deposita(self,valor):
+        self._saldo += valor
+    def __eq__(self,otro):
+        return self._codigo == otro._codigo and self._saldo==otro._saldo
+    # def __lt__(self,otro):
+    #     return self._saldo < otro._saldo
+    def __le__(self,otro):
+        return self._saldo <= otro._saldo
+
+    def __str__(self):
+        return f'>>>>Código: {self._codigo} -- Saldo: {self._saldo}<<<<'
+    
+
+
+cuentaS_alvaro = CuentaSalario(51)
+cuentaS_alvaro.deposita(500)
+cuentaS_stef = CuentaSalario(52)
+cuentaS_stef.deposita(1000)
+cuentaS_pablo = CuentaSalario(53)
+cuentaS_pablo.deposita(500)
+# sorted(cuentas)
+
+cuentas = [cuentaS_alvaro,cuentaS_stef,cuentaS_pablo]
+
+from operator import  attrgetter
+print(type(cuenta_alvaro))
+
+for cuenta in sorted(cuentas, key=attrgetter('_saldo')): #Esto es una forma, pero rompe encapsulamiento
+    print(cuenta)
+
+print(sorted(cuentas))
+
+print(cuentaS_alvaro >= cuentaS_stef)
+
+for cuenta in sorted(cuentas):
+    print(cuenta)
